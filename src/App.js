@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import couch_large from '../assets/_final-assets/photo-couch.jpg';
 import './App.css';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
 function Header() {
     return(
         <div>
-            <p>Endless</p>
+            <p className="headerText">Endless</p>
         </div>
     );
 }
@@ -30,6 +30,7 @@ function Promo() {
     return (
         <div>
             <p> This is where the promo will go</p>
+            <img src={couch_large} alt="couch_img" />
         </div>
     )
 }
