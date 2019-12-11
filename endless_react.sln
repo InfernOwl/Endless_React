@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "endless_react", ".", "{D896DB95-CFFB-496C-BE26-2E4E0C360D18}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59383"
+		Debug.AspNetCompiler.PhysicalPath = "..\endless_react\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59383\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59383"
+		Release.AspNetCompiler.PhysicalPath = "..\endless_react\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59383\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59383"
+		SlnRelativePath = "..\endless_react\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D896DB95-CFFB-496C-BE26-2E4E0C360D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D896DB95-CFFB-496C-BE26-2E4E0C360D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B988F82-9379-46A9-8276-9495264C88CA}
+	EndGlobalSection
+EndGlobal
