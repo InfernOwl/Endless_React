@@ -3,6 +3,7 @@ import React from 'react';
 
 //asset imports
 import couch_large from './assets/_final-assets/photo-couch.jpg';
+import { ReactComponent as Logo } from './assets/_final-assets/logo-endless.svg';
 
 // Main app import
 import './App.css';
@@ -29,8 +30,8 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="headerDiv">
-                <p className="headerText">ENDLESS</p>
+            <div className="headerLogo">
+                <Logo className="endlessLogo" />
             </div>
         );
     }
@@ -40,21 +41,23 @@ class Promo extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="promoSection">
                 <img src={couch_large} alt="couch_img" />
-                <div className="promoText">
-                    <h2>New Games & Accessories</h2>
-                    <h1>Monthly packages.</h1>
-                    <h1>Excitement delivered daily.</h1>
+                <div className="promoText latoText">
+                    <p className="newGames">New Games & Accessories</p>
+                    <p className="monthlyPackage">Monthly packages.<br/>
+                        Excitement delivered daily.</p>
 
-                    <p>What's the best way to shop for the latest video games and peripherals?
-                    How about never shopping at all? You'll get new stuff on your doorstep - every month.</p>
+                    <p className="desc">What's the best way to shop for the latest video games and peripherals? How about never shopping at all?<br/>
+                    You'll get new stuff on your doorstep - every month.</p>
+                    <div className="latoText promoButton" >
 
-                </div>
-                <div className="promoButton" >
-                    <button>
-                        Get Started
-                </button>
+                        <button className="latoText">
+                        GET STARTED
+                        </button>
+                    </div>
+
+
                 </div>
             </div>
         )
@@ -94,23 +97,32 @@ class HowItWorks extends React.Component {
 
                 const stepsDOM = stepList.sort().map((data, count) => {
                     let stepHolder = [];
+
                     for (let j = 0; j < data.versionContent.length; j++) {
                         if (typeof stepHolder[0] == 'undefined') {
-                            data.versionContent[j].stepNumber = data.stepNumber;
-                            stepHolder = data.versionContent[j];
+                            if (data.stepNumber < 10) {
+                                data.versionContent[j].stepNumber = "0" + data.stepNumber;
+                            } else {
+                                data.versionContent[j].stepNumber = data.stepNumber;
+                            }
+                            stepHolder.push(data.versionContent[j]);
                         } else {
                             if (newerDate(data.versionContent[j].effectiveDate, stepHolder[0].effectiveDate) === data.versionContent[j].effectiveDate) {
-                                data.versionContent[j].stepNumber = data.stepNumber;
-                                stepHolder = data.versionContent[j];
+                                if (data.stepNumber < 10) {
+                                    data.versionContent[j].stepNumber = "0" + data.stepNumber;
+                                } else {
+                                    data.versionContent[j].stepNumber = data.stepNumber;
+                                }
+                                stepHolder.splice(0, 1, data.versionContent[j]);
                             }
                         }
                     }
 
                     return (
-                        <li key={stepHolder.stepNumber}>
-                            <div>{stepHolder.stepNumber}</div>
-                            <h3>{stepHolder.title}</h3>
-                            <p>{stepHolder.body}</p>
+                        <li className="listItem" key={stepHolder[0].stepNumber}>
+                            <div>{stepHolder[0].stepNumber}</div>
+                            <h3>{stepHolder[0].title.toUpperCase()}</h3>
+                            <p>{stepHolder[0].body}</p>
                         </li>
                     );
                 });
@@ -125,11 +137,13 @@ class HowItWorks extends React.Component {
 
     }
 
+
+
+
     render() {
         return (
-            <div>
-                <p>This is where the How-It-Works Section will go</p>
-                <h2>How It Works</h2>
+            <div className="howItWorksText latoText">
+                <p>How It Works</p>
                 <ul>
                     {this.state.steps}
                 </ul>
