@@ -2,7 +2,7 @@
 import React from 'react';
 
 //asset imports
-//import couch_small from './assets/_final-assets/photo-couch.jpg';
+import couch_small from './assets/_final-assets/photo-couch.jpg';
 import couch_large from './assets/_final-assets/photo-couch_2x.jpg';
 import { ReactComponent as Logo } from './assets/_final-assets/logo-endless.svg';
 
@@ -46,10 +46,27 @@ class Header extends React.Component {
 
 class Promo extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            mobileWindow: window.innerWidth < 1020,
+        };
+    }
+
+    couchImg() {
+        if (this.state.mobileWindow) {
+            console.log("small");
+            return couch_small;
+        } else {
+            console.log("large");
+            return couch_large;
+        }
+    }
+
     render() {
         return (
             <div className="promoSection">
-                <img src={couch_large} alt="couch_img" />
+                <img src={this.couchImg()} alt="couch_img" />
                 <div className="promoText latoText">
                     <p className="newGames">New Games & Accessories</p>
                     <p className="monthlyPackage">Monthly packages.<br/>

@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
@@ -18,38 +19,45 @@ code {
     font-family: 'Lato', sans-serif;
 }
 
-.parallax-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 8px;
-    perspective-origin: 0%;
-    display: flex;
-    z-index: 0;
-}
+/**************************************************
+    Desktop CSS
+**************************************************/
 
-.parallax-wrapper::-webkit-scrollbar {
-    display: none;
-}
+/* Only use parallax if NOT on mobile */
+@media (min-device-width: 1020px) {
+    .parallax-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 8px;
+        perspective-origin: 0%;
+        display: flex;
+        z-index: 0;
+    }
 
-.foreground {
-    transform: translateZ(0px);
-}
+        .parallax-wrapper::-webkit-scrollbar {
+            display: none;
+        }
 
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-origin: 0;
-    transform: translateZ(-4px) scale(1.5);
+    .foreground {
+        transform: translateZ(0px);
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: 0;
+        transform: translateZ(-4px) scale(1.5);
+    }
 }
 
 .Header {
-    background-color: #404040;
+    background-color: #262626;
     height: 6%;
     width: 100%;
     position: fixed;
@@ -72,7 +80,6 @@ code {
 }
 
 .promoSection img {
-    height: 100%;
     width: 100%;
 }
 
@@ -100,7 +107,7 @@ code {
 .promoButton button {
     background-color: aquamarine;
     border: none;
-    color: #404040;
+    color: #262626;
     padding: 1%;
     text-align: center;
     text-decoration: none;
@@ -111,6 +118,13 @@ code {
     border-radius: 30px;
 }
 
+    .promoButton button:hover {
+        background-color: darkorchid;
+        color: whitesmoke;
+        transition: background-color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
+    }
+
 .desc {
     font-size: 18px;
     font-weight: 400;
@@ -120,7 +134,7 @@ code {
 .HowItWorks {
     background-color: whitesmoke;
     width: 100%;
-    height: max-content;
+    height: 60%;
     position: fixed;
     left: 0px;
     top: 90%;
@@ -150,10 +164,16 @@ code {
     display: inline;
     text-align: center;
     width:50%;
-    margin-left:25%;
-    margin-right:25%;
+    
     border-bottom: 3px solid aquamarine;
 }
+
+    .listItem div:hover {
+        border-bottom: 3px solid darkorchid;
+        margin-left: 10%;
+        margin-right: 10%;
+        transition: border-bottom 0.5s ease-in-out;
+    }
 
 .listItem h3 {
     font-size: 15px;
@@ -164,3 +184,120 @@ code {
     font-size: 17px;
 }
 
+/**************************************************
+    Mobile CSS
+**************************************************/
+
+@media (max-device-width: 1024px), (max-device-height: 830) {
+
+    .parallax-wrapper {
+        background-color: #262626;
+        display: inline-block;
+    }
+
+    .Promo {
+        height: 100%;
+        width: 100%;
+        background-color: #262626;
+        position: unset;
+    }
+
+    .promoSection img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .promoText {
+        position: unset;
+        text-align: center;
+        overflow: auto;
+        color: whitesmoke;
+        width: 80%;
+        padding-bottom: 5%;
+        border-bottom: 3px solid aquamarine;
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .newGames {
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .monthlyPackage {
+        font-weight: 300;
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .promoButton button {
+        background-color: aquamarine;
+        border: none;
+        color: #262626;
+        padding: 1%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 100%;
+        font-weight: 700;
+        width: 60%;
+        border-radius: 30px;
+
+    }
+
+    .desc {
+        font-size: 16px;
+        font-weight: 400;
+        padding-right: 0;
+    }
+
+    .HowItWorks {
+        background-color: #262626;
+        width: 100%;
+        height: 60%;
+        position: unset;
+        color: whitesmoke;
+    }
+
+    .howItWorksText p {
+        font-size: 30px;
+    }
+
+    .howItWorksText ul {
+        list-style-type: none;
+        margin: 0;
+        padding-right: 10%;
+        padding-left: 10%;
+        overflow: hidden;
+        align-content: center;
+    }
+
+    .listItem {
+        float: none;
+        width: 100%;
+        max-width: 330px;
+        padding-left: 2%;
+        padding-right: 2%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .listItem div {
+            font-size: 48px;
+            display: inline;
+            text-align: center;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-bottom: 3px solid aquamarine;
+        }
+
+        .listItem h3 {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .listItem p {
+            font-size: 17px;
+        }
+}
