@@ -25,6 +25,7 @@ code {
 
 /* Only use parallax if NOT on mobile */
 @media (min-device-width: 1020px) {
+    
     .parallax-wrapper {
         position: relative;
         width: 100%;
@@ -53,6 +54,39 @@ code {
         height: 100%;
         transform-origin: 0;
         transform: translateZ(-4px) scale(1.5);
+    }
+
+    /*** EDGE SUPPORT ***/
+    @supports (-ms-ime-align: auto) {
+        .parallax-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 8px;
+            perspective-origin: 0%;
+            display: flex;
+            z-index: 0;
+        }
+
+            .parallax-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+        .foreground {
+            transform: translateZ(0px);
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: 0;
+            transform: translateZ(0px);
+        }
     }
 }
 
@@ -195,11 +229,16 @@ code {
         display: inline-block;
     }
 
+    .endlessLogo {
+        width: 20%;
+    }
+
     .Promo {
         height: 100%;
         width: 100%;
         background-color: #262626;
         position: unset;
+        padding: 10%;
     }
 
     .promoSection img {
