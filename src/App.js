@@ -2,7 +2,8 @@
 import React from 'react';
 
 //asset imports
-import couch_large from './assets/_final-assets/photo-couch.jpg';
+//import couch_small from './assets/_final-assets/photo-couch.jpg';
+import couch_large from './assets/_final-assets/photo-couch_2x.jpg';
 import { ReactComponent as Logo } from './assets/_final-assets/logo-endless.svg';
 
 // Main app import
@@ -11,17 +12,21 @@ import './App.css';
 class App extends React.Component {
 
     render() {
-        return (<div className="App" >
-            <div className="Header">
-                <Header />
+        return (
+            <div className="App" >
+
+                <div className="Header">
+                    <Header />
+                </div>
+                <div className="parallax-wrapper" >
+                    <div className="Promo background">
+                        <Promo />
+                    </div>
+                    <div className="HowItWorks foreground">
+                        <HowItWorks />
+                    </div>
+                </div>
             </div>
-            <div className="Promo">
-                <Promo />
-            </div>
-            <div className="HowItWorks">
-                <HowItWorks />
-            </div>
-        </div>
         );
     }
 }
@@ -31,7 +36,9 @@ class Header extends React.Component {
     render() {
         return (
             <div className="headerLogo">
-                <Logo className="endlessLogo" />
+                <a href="/" >
+                    <Logo className="endlessLogo" />
+                </a>
             </div>
         );
     }
