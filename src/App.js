@@ -55,10 +55,8 @@ class Promo extends React.Component {
 
     couchImg() {
         if (this.state.mobileWindow) {
-            console.log("small");
             return couch_small;
         } else {
-            console.log("large");
             return couch_large;
         }
     }
