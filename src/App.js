@@ -53,6 +53,7 @@ class Promo extends React.Component {
         };
     }
 
+    // Use the current window width to determine whether to load the small or large img
     couchImg() {
         if (this.state.mobileWindow) {
             return couch_small;
@@ -117,6 +118,7 @@ class HowItWorks extends React.Component {
                     stepList.push(result[key]);
                 })
 
+                // Map sorted objects to DOM elements and return
                 const stepsDOM = stepList.sort().map((data, count) => {
                     let stepHolder = [];
 

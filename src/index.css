@@ -28,8 +28,8 @@ code {
 **************************************************/
 
 /* Only use parallax if NOT on mobile */
-@media (min-device-width: 1020px) {
-    
+@media screen and (min-width: 1020px) {
+
     .parallax-wrapper {
         position: relative;
         width: 100%;
@@ -219,7 +219,7 @@ code {
 }
 
 /* Specific edge cases of PCs with wide (but not tall) displays */
-@media (min-device-width: 1020px) and (max-device-height: 630px) {
+@media screen and (min-width: 1020px) and (max-height: 630px) {
     .parallax-wrapper {
         display: inline;
     }
@@ -251,7 +251,7 @@ code {
     Mobile CSS
 **************************************************/
 
-@media (max-device-width: 1024px) {
+@media screen and (max-width: 1024px) {
 
     .App {
         background-color: #262626;
