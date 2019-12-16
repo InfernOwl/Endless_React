@@ -26,5 +26,5 @@ The build is minified and the filenames include the hashes.<br />
 ### `npm install -g serve`
 ### `serve -s build`
 
-Runs the minified build of the app on an open localhost port (default port 5000)
+Runs the minified build of the app on an open localhost port (default port 5000) <br />
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
