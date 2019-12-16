@@ -1,13 +1,379 @@
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.latoText {
+    font-family: 'Lato', sans-serif;
+}
+
+.App {
+    background-color: whitesmoke;
+}
+
+/**************************************************
+    Desktop CSS
+**************************************************/
+
+/* Only use parallax if NOT on mobile */
+@media screen and (min-width: 1020px) {
+
+    .parallax-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 8px;
+        perspective-origin: 0%;
+        display: flex;
+        z-index: 0;
+    }
+
+        .parallax-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+    .foreground {
+        transform: translateZ(0px);
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: 0;
+        transform: translateZ(-4px) scale(1.5);
+    }
+
+    /*** EDGE SUPPORT ***/
+    @supports (-ms-ime-align: auto) {
+        .parallax-wrapper {
+            display: inline-block;
+        }
+
+            .parallax-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+        .foreground {
+            transform: translateZ(0px);
+            position: unset;
+        }
+
+        .background {
+            position: unset;
+            transform-origin: 0;
+            transform: translateZ(0px);
+        }
+    }
+}
+
+
+
+
+.Header {
+    background-color: #262626;
+    height: 6%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.endlessLogo {
+    fill: aquamarine;
+    width: 10%;
+    height: 100%;
+    left: 15%;
+    top: 3%;
+    position: absolute;
+}
+
+    .endlessLogo :hover {
+        fill: darkorchid;
+        transition: fill 0.3s ease-in-out;
+    }
+
+.Promo {
+    height: 100%;
+    width: 100%;
+}
+
+.promoSection img {
+    width: 100%;
+}
+
+.promoText {
+    position: absolute;
+    bottom: 20%;
+    left: 18%;
+    text-align: left;
+    width: 50%;
+    overflow-wrap: break-word;
+    color: whitesmoke;
+}
+
+.newGames {
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.monthlyPackage {
+    font-weight: 300;
+    font-size: 48px;
+    margin: 0;
+}
+
+.promoButton button {
+    background-color: aquamarine;
+    border: none;
+    color: #262626;
+    padding: 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+    font-weight: 700;
+    width: 20%;
+    border-radius: 30px;
+}
+
+    .promoButton button:hover {
+        background-color: darkorchid;
+        color: whitesmoke;
+        transition: background-color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
+    }
+
+.desc {
+    font-size: 18px;
+    font-weight: 400;
+    padding-right: 40%;
+}
+
+.HowItWorks {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 60%;
+    position: fixed;
+    left: 0px;
+    top: 90%;
+}
+
+.howItWorksText p {
+    font-size: 30px;
+}
+
+.howItWorksText ul {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 10%;
+    padding-left: 10%;
+    overflow: hidden;
+}
+
+.listItem {
+    float: left;
+    width: 20%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.listItem div {
+    font-size: 48px;
+    display: inline;
+    text-align: center;
+    width:50%;
+    
+    border-bottom: 3px solid aquamarine;
+}
+
+    .listItem div:hover {
+        border-bottom: 3px solid darkorchid;
+        margin-left: 10%;
+        margin-right: 10%;
+        transition: border-bottom 0.5s ease-in-out;
+    }
+
+.listItem h3 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.listItem p {
+    font-size: 17px;
+}
+
+/* Specific edge cases of PCs with wide (but not tall) displays */
+@media screen and (min-width: 1020px) and (max-height: 630px) {
+    .parallax-wrapper {
+        display: inline;
+    }
+
+        .parallax-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+    .foreground {
+        transform: translateZ(0px);
+        position: unset;
+        height: 90%;
+    }
+
+    .background {
+        position: unset;
+        transform-origin: 0;
+        transform: translateZ(0px);
+    }
+
+    .promoText {
+        bottom: 50%;
+    }
+}
+
+
+
+/**************************************************
+    Mobile CSS
+**************************************************/
+
+@media screen and (max-width: 1024px) {
+
+    .App {
+        background-color: #262626;
+    }
+
+    .parallax-wrapper {
+        background-color: #262626;
+        display: inline;
+        transform-origin: 0;
+        transform: translateZ(0px);
+    }
+
+    .endlessLogo {
+        width: 20%;
+    }
+
+    .Promo {
+        height: 100%;
+        width: 100%;
+        background-color: #262626;
+        position: unset;
+        padding: 0;
+        transform-origin: 0;
+        transform: translateZ(0px);
+    }
+
+    .promoSection img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .promoText {
+        position: unset;
+        text-align: center;
+        overflow: auto;
+        color: whitesmoke;
+        width: 80%;
+        padding-bottom: 5%;
+        border-bottom: 3px solid aquamarine;
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .newGames {
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .monthlyPackage {
+        font-weight: 300;
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .promoButton button {
+        background-color: aquamarine;
+        border: none;
+        color: #262626;
+        padding: 1%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 100%;
+        font-weight: 700;
+        width: 60%;
+        border-radius: 30px;
+
+    }
+
+    .desc {
+        font-size: 16px;
+        font-weight: 400;
+        padding-right: 0;
+    }
+
+    .HowItWorks {
+        background-color: #262626;
+        width: 100%;
+        height: 60%;
+        position: unset;
+        color: whitesmoke;
+    }
+
+    .howItWorksText p {
+        font-size: 30px;
+    }
+
+    .howItWorksText ul {
+        list-style-type: none;
+        margin: 0;
+        padding-right: 10%;
+        padding-left: 10%;
+        overflow: hidden;
+        align-content: center;
+    }
+
+    .listItem {
+        float: none;
+        width: 100%;
+        max-width: 330px;
+        padding-left: 2%;
+        padding-right: 2%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .listItem div {
+            font-size: 48px;
+            display: inline;
+            text-align: center;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-bottom: 3px solid aquamarine;
+        }
+
+        .listItem h3 {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .listItem p {
+            font-size: 17px;
+        }
 }
